@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20231207 12:37:07.501" rpa="false" schemaversion="4">
+<suite id="s1" name="Raiz" source="C:\Users\Robso\Documents\desafio_técnico\projeto_desafio\resources\Raiz.robot">
+<test id="s1-t1" name="Cadastro das informações do veiculo" line="18">
+<kw name="Start session" library="base" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231207 12:37:07.648" level="INFO">Opening browser 'Chrome' to base url 'https://sampleapp.tricentis.com/101/app.php'.</msg>
+<status status="PASS" starttime="20231207 12:37:07.648" endtime="20231207 12:37:11.543"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231207 12:37:11.544" endtime="20231207 12:37:11.672"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:07.648" endtime="20231207 12:37:11.672"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${element}</var>
+<arg>xpath=//table[@class='ui-datepicker-calendar']//a[text()='4']</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231207 12:37:11.674" level="INFO">${element} = xpath=//table[@class='ui-datepicker-calendar']//a[text()='4']</msg>
+<status status="PASS" starttime="20231207 12:37:11.674" endtime="20231207 12:37:11.674"/>
+</kw>
+<kw name="Fill vehicle data form" library="EnterVehicleData">
+<arg>Audi</arg>
+<arg>Moped</arg>
+<arg>250</arg>
+<arg>1500</arg>
+<arg>${element}</arg>
+<arg>2</arg>
+<arg>Diesel</arg>
+<arg>250</arg>
+<arg>30000</arg>
+<arg>85000</arg>
+<arg>ASX682K</arg>
+<arg>430</arg>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>css=select[name='Make']</arg>
+<arg>${make}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231207 12:37:11.677" level="INFO">Selecting options from selection list 'css=select[name='Make']' by value Audi.</msg>
+<status status="PASS" starttime="20231207 12:37:11.676" endtime="20231207 12:37:11.778"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>css=select[name='Model']</arg>
+<arg>${model}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231207 12:37:11.778" level="INFO">Selecting options from selection list 'css=select[name='Model']' by value Moped.</msg>
+<status status="PASS" starttime="20231207 12:37:11.778" endtime="20231207 12:37:11.852"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=input[id='cylindercapacity']</arg>
+<arg>${cylinder_capacity}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:11.852" level="INFO">Typing text '250' into text field 'css=input[id='cylindercapacity']'.</msg>
+<status status="PASS" starttime="20231207 12:37:11.852" endtime="20231207 12:37:11.935"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=input[id='engineperformance']</arg>
+<arg>${engine_performance}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:11.935" level="INFO">Typing text '1500' into text field 'css=input[id='engineperformance']'.</msg>
+<status status="PASS" starttime="20231207 12:37:11.935" endtime="20231207 12:37:12.012"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@class="ui-datepicker-trigger"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.012" level="INFO">Clicking element 'xpath=//button[@class="ui-datepicker-trigger"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.012" endtime="20231207 12:37:12.068"/>
+</kw>
+<kw name="Click Back Month" library="EnterVehicleData">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[@title="Prev"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.069" level="INFO">Clicking element 'xpath=//a[@title="Prev"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.068" endtime="20231207 12:37:12.116"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:12.068" endtime="20231207 12:37:12.116"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${date_of_manufacture}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.116" level="INFO">Clicking element 'xpath=//table[@class='ui-datepicker-calendar']//a[text()='4']'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.116" endtime="20231207 12:37:12.169"/>
+</kw>
+<kw name="Right Hand Drive Affirmative" library="EnterVehicleData">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//label[text()='Right Hand Drive']/following-sibling::p//label[input[@value='Yes']]/span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.170" level="INFO">Clicking element 'xpath=//label[text()='Right Hand Drive']/following-sibling::p//label[input[@value='Yes']]/span'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.170" endtime="20231207 12:37:12.436"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:12.169" endtime="20231207 12:37:12.436"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>css=select[name='Number of Seats']</arg>
+<arg>${number_of_seats}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231207 12:37:12.436" level="INFO">Selecting options from selection list 'css=select[name='Number of Seats']' by value 2.</msg>
+<status status="PASS" starttime="20231207 12:37:12.436" endtime="20231207 12:37:12.499"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>css=select[name='Fuel Type']</arg>
+<arg>${fuel_type}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20231207 12:37:12.500" level="INFO">Selecting options from selection list 'css=select[name='Fuel Type']' by value Diesel.</msg>
+<status status="PASS" starttime="20231207 12:37:12.500" endtime="20231207 12:37:12.559"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@name='Payload']</arg>
+<arg>${payload}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.559" level="INFO">Typing text '250' into text field 'xpath=//input[@name='Payload']'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.559" endtime="20231207 12:37:12.624"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@name="Total Weight"]</arg>
+<arg>${total_weight}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.624" level="INFO">Typing text '30000' into text field 'xpath=//input[@name="Total Weight"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.624" endtime="20231207 12:37:12.728"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@name="List Price"]</arg>
+<arg>${list_price}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.728" level="INFO">Typing text '85000' into text field 'xpath=//input[@name="List Price"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.728" endtime="20231207 12:37:12.806"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@name="License Plate Number"]</arg>
+<arg>${license_plate_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.807" level="INFO">Typing text 'ASX682K' into text field 'xpath=//input[@name="License Plate Number"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.806" endtime="20231207 12:37:12.889"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=//input[@name="Annual Mileage"]</arg>
+<arg>${annual_mileage}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.889" level="INFO">Typing text '430' into text field 'xpath=//input[@name="Annual Mileage"]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.889" endtime="20231207 12:37:12.960"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:11.676" endtime="20231207 12:37:12.960"/>
+</kw>
+<kw name="Submit vehicle data form" library="EnterVehicleData">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[contains(text(), "Next")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231207 12:37:12.961" level="INFO">Clicking element 'xpath=//button[contains(text(), "Next")]'.</msg>
+<status status="PASS" starttime="20231207 12:37:12.960" endtime="20231207 12:37:13.012"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:12.960" endtime="20231207 12:37:13.012"/>
+</kw>
+<kw name="Finish session" library="base" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231207 12:37:13.219" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-123.png"&gt;&lt;img src="selenium-screenshot-123.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231207 12:37:13.013" endtime="20231207 12:37:13.219"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231207 12:37:13.220" endtime="20231207 12:37:15.350"/>
+</kw>
+<status status="PASS" starttime="20231207 12:37:13.012" endtime="20231207 12:37:15.350"/>
+</kw>
+<doc>Cadastro realizado com sucesso</doc>
+<tag>happy_path_vehicle</tag>
+<status status="PASS" starttime="20231207 12:37:07.647" endtime="20231207 12:37:15.351"/>
+</test>
+<status status="PASS" starttime="20231207 12:37:07.504" endtime="20231207 12:37:15.352"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">happy_path_vehicle</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Raiz">Raiz</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
